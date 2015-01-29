@@ -5,8 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>首页面</title>
+<%@ include file="commons/taglib.jsp" %>
 </head>
 <body>
-
+	<h2><a href="${pageContext.request.contextPath }/account/logout">注销</a></h2>
+	<h2>Hello Boostrap</h2>
 </body>
 </html>
