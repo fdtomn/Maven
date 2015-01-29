@@ -25,7 +25,7 @@ public class UserDaoImpl implements IUserDao {
 		for(User u:users){
 			System.out.println(u);
 		}
-		return users;
+		return null;
 	}
 	
 	@Override

@@ -46,8 +46,9 @@
 	<!-- mybatis配置 --> 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property  name="mapperLocations"  value="classpath*:com/lb/maven/web/**/mapping/*Mapper.xml"></property>
-		<property name="typeAliasesPackage" value="com.lb.maven.web.**.domain"></property>
+		<!-- <property name="configLocation" value="classpath:configuration/mybatis/mybatis-config.xml"></property> -->
+		<property name="typeAliasesPackage" value="com.lb.maven.web"></property>
+		<property name="mapperLocations" value="classpath:com/lb/maven/web/**/mapping/*Mapper.xml"></property>
 	</bean>
 		 
 	<!-- SqlSession -->	 
