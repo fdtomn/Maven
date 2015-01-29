@@ -20,8 +20,11 @@ public class LoginController {
 	 * @return
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String toLogin(){
-		logger.info("跳转到登陆.......");
+	public String toLogin(HttpServletRequest request){
+		//如果用户已登陆则无需再次登录,可直接跳转到首页
+		if( getUserInfo(request) != null ){
+			return "redirect:/";
+		}
 		return "login";
 	}
 	
@@ -33,8 +36,13 @@ public class LoginController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(HttpServletRequest request,UserInfo userInfo){
-		request.setAttribute("userInfo", userInfo);
-		return "index";
+		
+		//验证用户信息
+		if(userInfo != null){
+			request.getSession().setAttribute("userInfo", userInfo);
+			return "redirect:/";
+		}
+		return "login";
 	}
 	
 	/**
@@ -45,4 +53,17 @@ public class LoginController {
 	public static UserInfo getUserInfo(HttpServletRequest request){
 		return (UserInfo)request.getSession().getAttribute("userInfo");
 	}
+	
+	/**
+	 * 用户注销操作
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request){
+		//点击注销后将用户的session移除
+		request.getSession().removeAttribute("userInfo");
+		return "redirect:login";
+	}
+	
 }
