@@ -40,7 +40,12 @@ public class LoginController {
 		//验证用户信息
 		if(userInfo != null){
 			request.getSession().setAttribute("userInfo", userInfo);
-			return "redirect:/";
+			String uri = (String)request.getSession().getAttribute("uri");
+			if(uri == null){
+				return "redirect:/";
+			}else{
+				return "redirect:"+uri;
+			}
 		}
 		return "login";
 	}

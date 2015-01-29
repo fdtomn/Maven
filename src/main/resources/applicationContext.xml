@@ -5,6 +5,6 @@
 
 
 	<import resource="configuration/applicationContext-mvc.xml"/>
-	<!-- <import resource="configuration/applicationContext-ds.xml"/> -->
+	<import resource="configuration/applicationContext-ds.xml"/>
 
 </beans>

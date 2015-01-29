@@ -39,9 +39,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 
+		String uri = request.getRequestURI();
+		
 		UserInfo userInfo = LoginController.getUserInfo(request);
 		// 用户没有登录
 		if (userInfo == null) {
+			//记录用户的请求 登录后跳转到对应的页面
+			request.getSession().setAttribute("uri", uri);
 			response.sendRedirect(request.getContextPath() + "/account/login");
 		}
 		return true;
