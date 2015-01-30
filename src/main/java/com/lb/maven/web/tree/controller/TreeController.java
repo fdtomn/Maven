@@ -24,4 +24,11 @@ public class TreeController {
 		logger.info("Tree..........");
 		return "tree/tree";
 	}
+	
+	@RequestMapping("/treeDemo")
+	public String treeDemo(){
+		
+		logger.info("treeDemo..........");
+		return "tree/treeDemo";
+	}
 }
