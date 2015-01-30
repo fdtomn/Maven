@@ -27,6 +27,7 @@
 	<mvc:resources location="/img/" mapping="/img/**" />
 	<mvc:resources location="/login/" mapping="/login/**" />
 	<mvc:resources location="/plugin/" mapping="/plugin/**" />
+	<mvc:resources location="/jQuery/" mapping="/jQuery/**" />
 
 	<mvc:interceptors>
 		<mvc:interceptor>
@@ -37,6 +38,7 @@
 			<mvc:exclude-mapping path="/img/**"/>
 			<mvc:exclude-mapping path="/login/**"/>
 			<mvc:exclude-mapping path="/plugin/**"/>
+			<mvc:exclude-mapping path="/jQuery/**"/>
 			<bean class="com.lb.maven.base.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

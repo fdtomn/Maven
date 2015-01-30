@@ -1,5 +1,7 @@
 package com.lb.maven.base.controller;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -25,7 +27,15 @@ public class LoginController {
 		if( getUserInfo(request) != null ){
 			return "redirect:/";
 		}
-		return "login";
+		Random random = new Random();
+		int nextInt = random.nextInt(3);
+		if(0 == nextInt){
+			return "login3";
+		}else if(1 == nextInt){
+			return "login2";
+		}else{
+			return "login";
+		}
 	}
 	
 	/**
