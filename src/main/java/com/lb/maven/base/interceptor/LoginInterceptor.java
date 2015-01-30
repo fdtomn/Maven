@@ -23,7 +23,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		logger.info("after..........");
+//		logger.info("after..........");
 		super.afterCompletion(request, response, handler, ex);
 	}
 
@@ -31,7 +31,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		logger.info("post................");
+//		logger.info("post................");
 		super.postHandle(request, response, handler, modelAndView);
 	}
 
